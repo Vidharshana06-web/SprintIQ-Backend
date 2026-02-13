@@ -28,7 +28,7 @@ app.get("/api/test-github", async (req, res) => {
 // ✅ FIXED CORS - Allow Vite frontend
 // ✅ CORS - allow your React frontend (Vite) on 5173
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173'],
+  origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'https://sprint-iq-frontend-two.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
