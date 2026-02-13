@@ -28,11 +28,19 @@ app.get("/api/test-github", async (req, res) => {
 // ✅ FIXED CORS - Allow Vite frontend
 // ✅ CORS - allow your React frontend (Vite) on 5173
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'https://sprint-iq-frontend-two.vercel.app', 'https://sprint-iq-frontend-n7q1pw2oj-vidharshanas-projects.vercel.app/login'],
+  origin: [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:5173",
+    "https://sprint-iq-frontend-two.vercel.app",
+    "https://sprint-iq-frontend-n7q1pw2oj-vidharshanas-projects.vercel.app"
+  ],
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
+app.options("*", cors());
+
 // Body parsers
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
